@@ -30,4 +30,4 @@ jobs:
           pip install --upgrade requests testresources wheel setuptools Cython bzt
 
       - name: Test with Taurus Framework
-        run: bzt blazedemo.yml
+        run: bzt scenarios/blazedemo.yml
