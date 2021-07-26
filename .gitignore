@@ -10,3 +10,6 @@
 
 # Ignore customized user.properties
 user.properties
+
+### Artifacts ###
+artifacts
