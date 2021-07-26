@@ -8,3 +8,14 @@ scenarios:
   quick-test:
     requests:
     - http://blazedemo.com
+
+settings:
+  check-interval: 5s
+  default-executor: jmeter
+  artifacts-dir: ./artifacts
+  check-updates: true
+
+reporting:
+- final-stats
+- console
+- blazemeter
