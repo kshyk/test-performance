@@ -38,3 +38,9 @@ jobs:
 
       - name: Test with Taurus Framework
         run: bzt scenarios/blazedemo.yml
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: taurus-artifact
+          path: artifacts/
