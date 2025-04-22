@@ -31,7 +31,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --quiet --upgrade pip
-          pip install --quiet --upgrade requests testresources wheel python3-setuptools Cython bzt
+          pip install --quiet --upgrade requests testresources wheel setuptools Cython bzt
+          sudo apt-get install -y python3-setuptools
 
       - name: Test with Taurus Framework
         run: bzt scenarios/blazedemo.yml
