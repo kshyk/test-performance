@@ -40,7 +40,7 @@ jobs:
         run: bzt scenarios/blazedemo.yml
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: taurus-artifact
           path: artifacts/
