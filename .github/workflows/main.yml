@@ -5,31 +5,18 @@ on: [push, pull_request]
 jobs:
   test:
     name: Taurus run
-    runs-on: ubuntu-20.04
-    env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
     steps:
-      - name: Log untrusted output
-        run: echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-
       - name: Checkout ${{ github.repository }} repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
-      - name: Cache dependencies
-        uses: actions/cache@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: ${{ runner.os }}-pip-
-
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
+          python-version: '3.13'
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
